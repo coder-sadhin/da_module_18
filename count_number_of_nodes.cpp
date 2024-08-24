@@ -56,7 +56,14 @@ Node *input_tree()
     }
     return root;
 }
-
+int count(Node *root)
+{
+    if (root == NULL)
+        return 0;
+    int l = count(root->left);
+    int r = count(root->right);
+    return l + r + 1;
+}
 int main()
 {
     Node *root = input_tree();
