@@ -56,7 +56,14 @@ Node *input_tree()
     }
     return root;
 }
-
+int maxHeight(Node *root)
+{
+    if (root == NULL)
+        return 0;
+    int l = maxHeight(root->left);
+    int r = maxHeight(root->right);
+    return max(l, r) + 1;
+}
 int main()
 {
     Node *root = input_tree();
